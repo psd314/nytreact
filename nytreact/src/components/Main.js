@@ -4,6 +4,8 @@ import Search from "./Search.jsx";
 import Results from "./Results.jsx";
 import Saved from "./Saved.jsx";
 import API from "../utilities/API.js";
+import QueryList from "./QueryList.jsx";
+import QueryListItem from "./QueryListItem.jsx";
 
 class Main extends Component {
 	state = {
@@ -42,7 +44,19 @@ class Main extends Component {
 					handleInputChange={this.handleInputChange}
 				/>
 				<Results>
-					{!this.state.results.length ? (<h3>No results</h3>) : (<h3>Searching...</h3>)}
+					{!this.state.results.length ? (<h3>No results</h3>) : 
+					(<QueryList>
+						{this.state.results.map( (result, index) => {
+								return (
+									<QueryListItem 
+										key={index}
+										title={result.headline.main}
+										url={result.web_url}
+									/>
+									);
+								})
+							}
+					</QueryList>)}
 				</Results>
 				<Saved />
 			</div>

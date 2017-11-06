@@ -2,17 +2,7 @@ import React, { Component } from "react";
 
 class Search extends Component {
 
-	state = {
-		results: [],
-		topic: "",
-		beginningYear: "",
-		endingYear: ""
-	}
-
-	handleFormSubmit = (event) => {
-		event.preventDefault();
-		alert('this worked');
-	}
+	
 
 	render() {
 		return(
@@ -32,7 +22,10 @@ class Search extends Component {
 						    <div className="row">
 						    	<div className="col-10 offset-1">
 						    		<div className="input-group">
-									  <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" />
+									  <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" 
+									  	value={this.props.value}
+									  	onChange={this.props.handleInputChange}					
+									  	name="topic"/>
 									</div>
 						    	</div>
 						    </div>
@@ -47,7 +40,10 @@ class Search extends Component {
 						    <div className="row">
 						    	<div className="col-10 offset-1">
 						    		<div className="input-group">
-									  <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" />
+									  	<input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" 
+									  	value={this.props.value}
+									  	onChange={this.props.handleInputChange}					
+									  	name="beginningYear"/>
 									</div>
 						    	</div>
 						    </div>
@@ -62,13 +58,16 @@ class Search extends Component {
 						    <div className="row">
 						    	<div className="col-10 offset-1">
 						    		<div className="input-group">
-									  <input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" />
+									  	<input type="text" className="form-control" placeholder="" aria-describedby="basic-addon1" 
+										value={this.props.value}
+										onChange={this.props.handleInputChange}
+									  	name="endingYear"/>
 									</div>
 						    	</div>
 						    </div>
 					    </div>
 					    <div style={{paddingBottom: 20}}>
-					    	<button onClick={this.handleFormSubmit} href="#" className="btn btn-lg btn-primary">Search</button>
+					    	<button onClick={this.props.handleFormSubmit} href="#" className="btn btn-lg btn-primary">Search</button>
 					    </div>
 					  </div>
 					</div>

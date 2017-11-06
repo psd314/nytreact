@@ -11,6 +11,9 @@ class Results extends Component {
 					    <div className="alert alert-info card-title" role="alert">
 						  <h1>Results</h1>
 						</div>
+						<div>
+							{this.props.children}
+						</div>
 					  </div>
 					</div>
 				</div>
